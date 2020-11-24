@@ -1,0 +1,43 @@
+﻿{% extends 'base.html' %}
+
+{% block body %}
+
+{% for p in pr %}
+
+<div class="col-sm-6 col-lg-4 col-xl-3 px-0">
+  <div class="card h-100">
+    <div id="carousel{{ p.id }}" class="carousel slide carousel-fade" data-interval="false">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel{{ p.id }}" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel{{ p.id }}" data-slide-to="1"></li>
+        <li data-target="#carousel{{ p.id }}" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        {% for xm in p.detail.colors[0].xmedia %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+              <img src="https://static.zara.net/photos{{ xm.path}}/w/1140/{{ xm.name}}.jpg?ts={{ xm.timestamp}}" loading="{% if loop.last %}auto{% else %}lazy{% endif %}" class="d-block w-100" alt="{{ p.id }}">
+            </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#carousel{{ p.id }}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel{{ p.id }}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="card-body bg-light">
+      <h5 class="card-title text-uppercase font-weight-bold">{{ p.productTag[0] }} / {{ p.productTag[1] }}</h5>
+      <p class="card-text">{{ p.name|raw }}</p>
+      <p class="card-text">
+        <span><s>{{ (p.oldPrice/100)|number_format(2, '.', ',') }} PLN</s></span><span class="text-danger pl-2">{{ (p.price/100)|number_format(2, '.', ',') }} PLN</span>
+      </p>
+    </div>
+  </div><!-- /card -->
+</div><!-- /col -->
+
+{% endfor %}
+
+{% endblock %}

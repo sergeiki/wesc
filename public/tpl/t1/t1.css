@@ -1,0 +1,247 @@
+﻿body {
+  background-color: #f9f9f9;
+  font-family: lato;
+}
+
+.product {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 50px auto;
+}
+.product.flip .front {
+  -webkit-transform: perspective(400px) rotateY(-180deg);
+  transform: perspective(400px) rotateY(-180deg);
+}
+.product.flip .back {
+  -webkit-transform: perspective(400px) rotateY(0deg);
+  transform: perspective(400px) rotateY(0deg);
+  height: 400px;
+}
+.product > div {
+  width: 300px;
+  position: absolute;
+  box-shadow: 0px 0px 6px 0px #ddd;
+}
+.product .front,
+.product .back {
+  background-color: #fafafa;
+  -webkit-transform: perspective(1000px) rotateY(0deg);
+  transform: perspective(1000px) rotateY(0deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+}
+.product .front span.new,
+.product .back span.new {
+  position: absolute;
+  background: #77d596;
+  color: #fff;
+  font-size: 14px;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  padding: 11px 0 0 7px;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  border-radius: 0% 0% 75% 0%;
+  font-weight: 300;
+}
+.product .front .img-wrap,
+.product .back .img-wrap {
+  padding: 50px 20px 30px;
+  background-color: #fff;
+  min-width: 100%;
+}
+.product .front .img-wrap img,
+.product .back .img-wrap img {
+  max-width: 100%;
+}
+.product .front .img-wrap i,
+.product .back .img-wrap i {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  font-size: 20px;
+  color: #eaeaea;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+}
+.product .front .img-wrap i:hover,
+.product .back .img-wrap i:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.product .front .img-wrap i.fav,
+.product .back .img-wrap i.fav {
+  color: #fe7676;
+}
+.product .front .description,
+.product .back .description {
+  position: relative;
+  padding: 30px 15px 15px;
+}
+.product .front .description span.discount,
+.product .back .description span.discount {
+  position: absolute;
+  top: -24px;
+  right: 15px;
+  background-color: #ff6f6f;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  border-style: outset;
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  box-sizing: content-box;
+  font-weight: 300;
+  font-size: 15px;
+}
+.product .front .description .content h3,
+.product .back .description .content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: #696969;
+}
+.product .front .description .content p,
+.product .back .description .content p {
+  margin: 10px 0 15px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #909090;
+}
+.product .front .description .price,
+.product .back .description .price {
+  float: left;
+}
+.product .front .description .price .old-price,
+.product .back .description .price .old-price {
+  font-size: 18px;
+  color: #c3c3c3;
+  font-weight: 300;
+  margin-right: 10px;
+}
+.product .front .description .price .new-price,
+.product .back .description .price .new-price {
+  font-size: 30px;
+  font-weight: 300;
+  color: #48af6a;
+}
+.product .front .description .quick-detail,
+.product .back .description .quick-detail {
+  background-color: #77d596;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 27px;
+  cursor: pointer;
+}
+.product .front .description .quick-detail i,
+.product .back .description .quick-detail i {
+  -webkit-transform: translate(0px);
+  transform: translate(0px);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+}
+.product .front .description .quick-detail:hover i,
+.product .back .description .quick-detail:hover i {
+  -webkit-transform: translateX(3px);
+  transform: translateX(3px);
+}
+.product .front.back .img-wrap,
+.product .back.back .img-wrap {
+  padding: 30px 20px 40px;
+  position: relative;
+}
+.product .front.back .img-wrap .colors,
+.product .back.back .img-wrap .colors {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.product .front.back .img-wrap .colors .main-color,
+.product .back.back .img-wrap .colors .main-color {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+}
+.product .front.back .img-wrap .colors ul,
+.product .back.back .img-wrap .colors ul {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+.product .front.back .img-wrap .colors ul li,
+.product .back.back .img-wrap .colors ul li {
+  list-style: none;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: red;
+}
+.product .front.back .img-wrap ul.indicator,
+.product .back.back .img-wrap ul.indicator {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.product .front.back .img-wrap ul.indicator li,
+.product .back.back .img-wrap ul.indicator li {
+  list-style: none;
+  display: inline-block;
+  width: 60px;
+  height: 45px;
+  border: 2px solid #ddd;
+  margin: 0 3px;
+  padding: 3px;
+  line-height: 30px;
+}
+.product .front.back .img-wrap ul.indicator li img,
+.product .back.back .img-wrap ul.indicator li img {
+  max-width: 100%;
+}
+.product .front.back .description .quick-detail,
+.product .back.back .description .quick-detail {
+  background-color: #77d596;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.product .front.back .description .quick-detail:hover i,
+.product .back.back .description .quick-detail:hover i {
+  -webkit-transform: rotate(180deg) translateX(3px);
+  transform: rotate(180deg) translateX(3px);
+}
+.product .front.back .description .quick-detail i,
+.product .back.back .description .quick-detail i {
+  -webkit-transform: rotate(180deg) translateX(0px);
+  transform: rotate(180deg) translateX(0px);
+}
+.product .back {
+  -webkit-transform: perspective(1000px) rotateY(180deg);
+  transform: perspective(1000px) rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+}

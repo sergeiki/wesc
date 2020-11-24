@@ -1,0 +1,9 @@
+{
+    "require": {
+        "symfony/dom-crawler": "^5.1",
+        "symfony/css-selector": "^5.1",
+        "fabpot/goutte": "^4.0",
+        "twig/twig": "^2.0",
+        "php": "^7.4"
+    }
+}

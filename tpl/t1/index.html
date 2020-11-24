@@ -1,0 +1,55 @@
+﻿{% extends 'base.html' %}
+
+{% block body %}
+
+{% for p in pr %}
+    <!--p>{{ p.name|raw }}</p-->
+    
+    <div class="product col-auto" id="p{{ p.id }}">
+
+    <!-- front face of product -->
+    <div class="front">
+      <span class="new">New</span>
+      <div class="img-wrap">
+        <img src="https://static.zara.net/photos{{ p.xmedia[0].path}}/w/1140/{{ p.xmedia[0].name}}.jpg?ts={{ p.xmedia[0].timestamp}}" alt="{{ p.name|raw }}" />
+        <i class="fa fa-shopping-basket fav"></i>
+      </div>
+      <div class="description clearfix">
+        <span class="discount">-{{ p.productTag[0][:-3] }}%</span>
+        <div class="content">
+          <h3>{{ p.productTag[1]|raw }}</h3>
+          <p>{{ p.name|raw }}</p>
+        </div>
+        <div class="price">
+          <span class="old-price"><del>{{ (p.oldPrice/100)|number_format(2, '.', ',') }} PLN</del></span>
+          <span class="new-price">{{ (p.price/100)|number_format(2, '.', ',') }} PLN</span>
+        </div>
+        <div class="quick-detail" data="{{ p.id }}">
+          <i class="fa fa-arrow-right"></i>
+        </div>
+      </div>
+    </div><!-- front -->
+
+    <!-- Back face of product -->
+    <div class="back">
+      <div class="img-wrap">
+        <img src="https://cdn.macrumors.com/article-new/2014/11/macbook_air_yosemite-800x450.jpg" alt="mac air" />
+        <ul class="indicator">
+          <li><img src="https://cdn.macrumors.com/article-new/2014/11/macbook_air_yosemite-800x450.jpg" alt="" /></li>
+          <li><img src="https://cdn.macrumors.com/article-new/2014/11/macbook_air_yosemite-800x450.jpg" alt="" /></li>
+          <li><img src="https://cdn.macrumors.com/article-new/2014/11/macbook_air_yosemite-800x450.jpg" alt="" /></li>
+        </ul>
+      </div><!-- /img-wrap -->
+
+      <div class="description clearfix">
+        <div class="quick-detail" data="{{ p.id }}">
+          <i class="fa fa-arrow-right"></i>
+        </div>
+      </div><!-- /description -->
+
+    </div><!-- /back -->
+
+  </div><!-- /product -->
+{% endfor %}
+
+{% endblock %}
